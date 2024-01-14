@@ -28,7 +28,8 @@ pyautogui.press("enter")
 time.sleep(3)
 
 for i in table.index:
-    pyautogui.press("tab")
+
+    pyautogui.click(x=676, y=257)
 
     pyautogui.write(str(table.loc[i, "codigo"]))
     pyautogui.press("tab")
@@ -48,10 +49,12 @@ for i in table.index:
     pyautogui.write(str(table.loc[i, "custo"]))
     pyautogui.press("tab")
 
-    obs = table.loc[i, "obs"]
-    if not pd.isna():
-        pyautogui.write(obs)
+    if not pd.isna(table.loc[i , "obs"]):
+        pyautogui.write(str(table.loc[i, "obs"]))
+
     pyautogui.press("tab")
     pyautogui.press("enter")
-    pyautogui.scroll(500)
+    pyautogui.scroll(5000)
+
+    time.sleep(1)
 
